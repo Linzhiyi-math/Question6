@@ -5,6 +5,39 @@
 
 ---
 
+## 环境要求
+
+- **开发环境**：Python 3.14.4
+- **运行环境**：Jupyter Notebook
+- **依赖库**：numpy
+- （版本见 requirements.txt）
+
+安装第三方依赖：
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 运行方法
+
+使用 Jupyter Notebook**
+
+```bash
+jupyter notebook 第六题.ipynb
+```
+
+打开后，点击菜单栏 **Cell → Run All** 运行全部代码
+
+程序将自动：
+1. **下载** MNIST 数据集（缓存至 `~/mnist_cache/`）
+2. **训练** SGD 和 NG-KFAC 两种优化器，各训练 30 个 epoch
+3. **保存** 训练结果至 `~/mnist_results.json`
+4. **打印** 对比摘要
+
+---
+
 ## 网络结构
 
 ```
@@ -39,37 +72,6 @@ $$F^l \approx A^l \otimes G^l$$
 - $G^l = \mathbb{E}[\delta^l(\delta^l)^\top]$：输出梯度的协方差矩阵
 
 默认学习率 `lr=0.01`（Fisher 矩阵已做尺度调整，无需大学习率）。
-
----
-
-## 环境要求
-
-- **开发环境**：Python 3.14.4
-- **运行环境**：Jupyter Notebook
-- **依赖库**：numpy
-- （版本见 requirements.txt）
-
-安装第三方依赖：
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-使用 Jupyter Notebook**
-
-```bash
-jupyter notebook 第六题.ipynb
-```
-
-打开后，点击菜单栏 **Cell → Run All** 运行全部代码
-
-程序将自动：
-1. **下载** MNIST 数据集（缓存至 `~/mnist_cache/`，已下载则跳过；主源失败自动切换备用源）
-2. **训练** SGD 和 NG-KFAC 两种优化器，各训练 30 个 epoch
-3. **保存** 训练结果至 `~/mnist_results.json`
-4. **打印** 对比摘要
 
 ---
 
